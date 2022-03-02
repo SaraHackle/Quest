@@ -9,6 +9,8 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+            bool run = true;
+            while (run) {
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
@@ -67,6 +69,7 @@ namespace Quest
             if (theAdventurer.Awesomeness >= maxAwesomeness)
             {
                 Console.WriteLine("YOU DID IT! You are truly awesome!");
+                Main(args);
             }
             else if (theAdventurer.Awesomeness <= minAwesomeness)
             {
@@ -76,6 +79,16 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+            
+            Console.Write("Do you want to play again? (Y/N) ");
+            string playAgain = Console.ReadLine().ToLower();
+            if (playAgain == "n") 
+            {
+                run = false;
+            }
+           
+            }
+            
         }
     }
 }
